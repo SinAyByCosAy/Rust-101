@@ -26,7 +26,7 @@ fn main() {
 
         match guess.cmp(&secret_num){
             //cmp compares and returns a variant of "Ordering" type (Less, Greater or Equal)
-            //match is like a switch case that on receiving the variant goes
+            //match is like a switch case(for pattern matching) that on receiving the variant goes
             //and matches against the keys or arms in Rust and executes the matching one
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
