@@ -27,4 +27,6 @@ fn main() {
     let spaces = "    ";
     let spaces = spaces.len();
     println!("Value of spaces: {spaces}");
+
+    //we can't do change type of a mutable var
 }
