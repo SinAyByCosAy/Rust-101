@@ -1,3 +1,4 @@
+use std::io;
 fn main() {
     //immutable
     let k = 6;
@@ -38,4 +39,21 @@ fn main() {
     let r = t.0;
     let g = t.1;
     let b = t.2;
+
+    //array
+    let a = [1, 2, 3, 4, 5];
+    println!("Enter an index");
+
+    let mut index = String::new();
+    io::stdin()
+        .read_line(&mut index)
+        .expect("FAILED!");
+    
+    let index: usize = index
+        .trim()
+        .parse()
+        .expect("Not a number");
+
+    let ele = a[index];
+    println!("Value at idx: {index} is {ele}");
 }
