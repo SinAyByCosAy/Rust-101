@@ -29,4 +29,13 @@ fn main() {
     println!("Value of spaces: {spaces}");
 
     //we can't do change type of a mutable var
+
+    //tuple
+    let t = (14.2, false, 22);
+    let (r,g,b) = t;
+    println!("{r} {g} {b}");
+
+    let r = t.0;
+    let g = t.1;
+    let b = t.2;
 }
