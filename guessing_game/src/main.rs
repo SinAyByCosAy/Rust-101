@@ -14,12 +14,13 @@ fn main() {
         let mut guess = String::new();
 
         io::stdin()
-            .read_line(&mut guess)
-            .expect("Failed to read input");
+            .read_line(&mut guess)//like variables, references are immutable by default
+            .expect("Failed to read input");//readline returns a "result", result's variants are "Ok" and "Err". These possible states are called variants.
 
         println!("You guessed: {guess}");
 
-        let guess: u32 = match guess.trim().parse(){
+        let guess: u32 = match guess.trim().parse(){// parse fn will return a variant of "result" -> either Ok or Err
+        //match will match the return value to the mentioned arms below and execute that flow.
             Ok(num) => num,
             Err(_) => continue,
         };
