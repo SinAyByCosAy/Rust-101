@@ -17,6 +17,11 @@ fn main() {
     let x = return_function();
     println!("Returned value : {}", return_function());
     println!("Returned value + 1 : {}", x+1);
+
+    //testing parameterized return function
+    let x = parameter_return_fn(68);
+    println!("Returned value from parameterized fn : {x}");
+    
 }
 
 fn test_function(){
@@ -29,5 +34,9 @@ fn value_function(n: usize, ch: char){
 }
 
 fn return_function() -> usize{//return type
-    8
+    8 //expression, no ';'
+}
+
+fn parameter_return_fn(n: usize) -> usize{
+    n + 1
 }
