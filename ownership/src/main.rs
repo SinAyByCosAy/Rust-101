@@ -27,6 +27,7 @@ fn main() {
 
     rest_ownership();
     deep_copy();
+    fn_ownership();
 
 }//Rust automatically calls drop at closing bracket where the author of String can put the code to return the memory
 
@@ -75,4 +76,29 @@ fn deep_copy(){
     //Because integers and similar data types have fixed known size at compile time and they are entirely stored on stack
     //so copies are quick to make. There is no reason for invalidating here.
     //In other words, there is no difference b/w deep and shallow copy here.
+}
+
+fn fn_ownership(){
+    let st1 = String::from("Billo bagge");
+    take_ownership(st1);// st1 gets shallow copied and pointer is passed to a new variable in the fn.
+    //Therefore st1 will no longer be valid from here on
+    
+    //println!("{st1}"); -> throws error
+
+    let st2 = String::from("Billo bagge - deep");
+    take_ownership(st2.clone());// st2 makes a deep copy
+    println!("{st2}");//therefore it works here as well
+
+    let x = 5;
+    makes_copy(x);//x gets moved into a fn, but it doesn't get invalidated
+    println!("{x}");//hence it works here
+
+}//here x goes out of scope, then s2 is dropped, nothing happens for s1 as that is already invalidated
+
+fn take_ownership(st: String){
+    println!("{st}");
+}
+
+fn makes_copy(x: usize){
+    println!("{x}");
 }
