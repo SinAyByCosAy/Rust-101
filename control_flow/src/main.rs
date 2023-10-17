@@ -55,4 +55,26 @@ fn main() {
         count += 1;
     }
     println!("End count = {count}");
+
+    //  While loop
+    let mut n = 3;
+    while n != 0{
+        println!("{n}");
+        n -= 1;
+    }
+
+    //Loop through collections
+    let a = [1, 2, 3, 4, 5];
+
+    //Option 1:
+    let mut idx = 0;
+    while idx < 5 {
+        println!{"Array element via while: {}", a[idx]};
+        idx += 1;
+    }
+    //Option 2:
+    for ele in a{
+        println!("Array element directly via for: {ele}");
+    }
+
 }
