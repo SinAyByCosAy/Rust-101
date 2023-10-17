@@ -34,7 +34,7 @@ fn value_function(n: usize, ch: char){
 }
 
 fn return_function() -> usize{//return type
-    8 //expression, no ';'
+    8 //expression, no ';' needed for return
 }
 
 fn parameter_return_fn(n: usize) -> usize{
