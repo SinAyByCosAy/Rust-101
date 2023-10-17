@@ -28,7 +28,7 @@ fn main() {
     rest_ownership();
     deep_copy();
     fn_ownership();
-
+    return_ownership_params();
 }//Rust automatically calls drop at closing bracket where the author of String can put the code to return the memory
 
 fn rest_ownership(){
@@ -101,4 +101,25 @@ fn take_ownership(st: String){
 
 fn makes_copy(x: usize){
     println!("{x}");
+}
+
+//Same is the case with returning value
+
+fn return_ownership_params(){
+    //ISSUE->
+    //lets say I pass a string to a function and now it's not valid anymore in the parent code
+    //But what if we need that value in the parent code afterwards.
+    //and the fn is already returning some other value.
+
+    //Rust allows us to return multiple values using a tuple.
+    let s1 = String::from("Yo!");
+
+    let (s2, len) = cal_len(s1);//s1 not valid after this
+    println!("The len of '{}' is {}", s2, len);
+
+}
+
+fn cal_len(s: String) -> (String, usize) {
+    let len = s.len();
+    (s, len)
 }
