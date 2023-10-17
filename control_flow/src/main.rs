@@ -17,6 +17,7 @@ fn main() {
     println!("Len based on n is {len}");
 
     //Loops
+    //special - we can have value returned from loops, helps in assignment of value efficiently. We don't have to keep saving the value in every iteration
     let mut counter = 0;
     let result = loop{
         counter += 1;
@@ -33,4 +34,25 @@ fn main() {
         break (10, 20, 30);
     };
     println!("Loop ended!! Tuple values: {a} {b} {c}");
+
+    //another speciality is being able to break specified loops using LABEL PREFIX
+    //being in a child nested loop, we can break the parent loop as well. We don't need a flag variable, memory effiecient again
+    let mut count = 0;
+    'counting_parent: loop{//label prefix
+        println!("count = {count}");
+        let mut remaining = 10;
+
+        loop{
+            println!("remaining = {remaining}");
+            if remaining == 9{
+                break;
+            }
+            if count == 3{
+                break 'counting_parent;
+            }
+            remaining -= 1;
+        }
+        count += 1;
+    }
+    println!("End count = {count}");
 }
