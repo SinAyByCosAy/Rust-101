@@ -1,3 +1,5 @@
+use std::io;
+
 fn main() {
     println!("Testing control flow");
 
@@ -77,4 +79,27 @@ fn main() {
         println!("Array element directly via for: {ele}");
     }
 
+    //Nth fibonnaci
+    println!("Enter N");
+    let mut n = String::new();
+    io::stdin()
+        .read_line(&mut n)
+        .expect("Failed to read input");
+
+    let n: isize = n.trim().parse().expect("NaN!!");
+    // println!("N: {n}");
+    println!("{}", fibo(n));
+}
+
+fn fibo(mut n: isize) -> isize{
+    let mut a = -1;
+    let mut b = 1;
+    let mut c = 0;
+    while n != 0 {
+        c = a + b;
+        a = b;
+        b = c;
+        n -= 1;
+    }
+    c
 }
